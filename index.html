@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-1.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>MEMORY GAME</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 id="title" class="title">MEMORY GAME</h1>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+
+        <!-- select difficulty options -->
+        <div class="diff">
+          <label for="mode" id="label">Select difficulty</label>
+          <select id="mode" class="mode">
+            <option value="super easy">Super easy</option>
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+            <option value="harder">Harder</option>
+            <option value="super hard">Super hard</option>
+          </select>
+        </div>
+
+        <!-- Play button -->
+        <button id="playBtn" class="playBtn">Play</button>
+      </header>
+
+      <main>
+        <!-- display memory game -->
+        <div id="boxContainer" class="boxContainer"></div>
+
+        <!--  game status message-->
+        <div id="gameStatusMsg" class="gameStatusMsg"></div>
+
+        <!-- display progress -->
+        <div id="progress" class="progress"></div>
+
+        <!-- new game button-->
+        <div id="newBtn" class="newBtn"></div>
+
+        <div class="sliding-menu" id="slidingMenu">
+          <h2>How to Play</h2>
+          <div class="playRules">Select a Difficulty:</div>
+          <p>Choose your desired difficulty level from the dropdown menu.</p>
+          <div class="playRules">Start the Game:</div>
+          <p>Click the "Play" button to begin.</p>
+          <div class="playRules">Flip Boxes:</div>
+          <p>
+            Click on the boxes to reveal the colours. Try to remember the
+            positions of the colours.
+          </p>
+          <div class="playRules">Match Pairs:</div>
+          <p>
+            Try to find matching pairs of colours. If you find a match, they
+            will remain flipped; if not, they will flip back after a short
+            delay.
+          </p>
+          <div class="playRules">Track Your Progress:</div>
+          <p>Keep an eye on the score and the timer displayed on the screen.</p>
+          <div class="playRules">Game Over:</div>
+          <p>
+            Once all pairs are found, the game will display a "GAME OVER"
+            message, and you can start a new game by clicking the button
+            provided.
+          </p>
+        </div>
+      </main>
+      <!-- copyright info -->
+      <footer>
+        <div id="copy" class="copy"></div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- Inspired by -->
+<!-- Laurence Svekis -->
+<!-- How to Create a JavaScript Memory Game using DOM elements Dynamic CSS Grid and JavaScript Logic -->
+<!-- https://www.youtube.com/watch?v=ZS3RH9NNjPY -->

@@ -1,0 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font1: "Roboto", sans-serif;
+  --backgroundColor1: #99a3a3;
+  --letterSpacing: 0.7px;
+
+  --boxSize1: 80px;
+  --boxSize2: 60px;
+  --boxSize3: 50px;
+  --boxShadow1: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+
+  --color1: #000000;
+  --color2: #111111;
+  --color3: #333333;
+  --color4: #999999;
+  --color5: #cccccc;
+  --color6: #dddddd;
+  --color7: #eeeeee;
+  --color8: #788b8b;
+  --color9: #800000;
+  --color10: #808080;
+
+  --menuColor1: #dda0dd;
+  --menuColor2: #333333;
+  --menuColor3: #99a3a3;
+  --menuColor4: #cccccc;
+  --menuColor5: #eeeeee;
+  --menuColor6: #788b8b;
+
+  --copyColor1: #99a3a3;
+  --copyColor2: #404040;
+  --copyColor3: #666666;
+  --copyColor4: #808080;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font1);
+  background-color: var(--backgroundColor1);
+}
+
+.container {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-content: center;
+  padding: 0 20px;
+}
+
+.title {
+  color: var(--color2);
+  font-size: 32px;
+  text-align: center;
+  margin: 50px 0 20px 0;
+}
+
+.boxContainer {
+  display: grid;
+  margin: auto;
+  place-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  max-width: 170px;
+}
+
+.box {
+  background-color: var(--color7);
+  color: var(--color3);
+  text-align: center;
+  min-height: var(--boxSize1);
+  min-width: var(--boxSize1);
+  line-height: var(--boxSize1);
+  cursor: pointer;
+}
+
+.front,
+.back {
+  position: absolute;
+  max-height: var(--boxSize1);
+  width: var(--boxSize1);
+  line-height: var(--boxSize1);
+}
+
+.active {
+  box-shadow: var(--boxShadow1);
+}
+
+.difficultyMsg,
+.gameStatusMsg,
+.pairsFoundMsg,
+.gameOverMsg {
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: var(--letterSpacing);
+}
+
+.difficultyMsg {
+  color: var(--color2);
+  font-size: 14px;
+  margin: 26px 0 16px 0;
+}
+
+.gameStatusMsg {
+  color: var(--color2);
+  padding: 14px;
+}
+
+.pairsFoundMsg {
+  color: var(--color3);
+  font-size: 14px;
+  padding: 4px auto;
+  margin-bottom: 2px;
+  width: auto;
+  display: none;
+}
+
+.gameOverMsg {
+  color: var(--color9);
+}
+
+.selectedDifficultyMsg {
+  color: var(--color9);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.matchFoundMsg {
+  font-size: 14px;
+}
+
+.progressDisplay {
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  margin-bottom: 14px;
+}
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--color5);
+  border: 1px solid var(--color4);
+}
+progress::-webkit-progress-value {
+  background: var(--color3);
+  border-color: transparent;
+}
+progress::-moz-progress-bar {
+  background: var(--color3);
+  border: 1px solid var(--color4);
+}
+
+.flippedBox {
+  padding: 6px 0;
+  color: transparent;
+  font-size: 10px;
+  box-shadow: var(--boxShadow1);
+}
+
+.timerDisplay {
+  font-size: 16px;
+  color: var(--color3);
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 24px;
+  letter-spacing: var(--letterSpacing);
+}
+
+.seconds {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--color1);
+  padding: 4px 6px;
+}
+
+.startGameBtn,
+.playBtn {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: var(--color8);
+  color: var(--color2);
+  padding: 8px 16px;
+  margin: 22px auto;
+  border: 1px solid var(--color10);
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.startGameBtn {
+  color: var(--color2);
+}
+
+.startGameBtn:hover,
+.playBtn:hover {
+  background-color: rgba(120, 139, 139, 0.3);
+}
+
+.diff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: var(--letterSpacing);
+}
+
+.mode {
+  width: 150px;
+  font-size: 14px;
+  background: transparent;
+  outline: none;
+  padding: 10px;
+  margin-top: 6px;
+  letter-spacing: var(--letterSpacing);
+}
+
+.mode option {
+  background-color: var(--color8);
+  color: var(--color2);
+}
+
+.mode:hover,
+.mode:focus {
+  background: var(--color6);
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 18px;
+  background-color: var(--menuColor3);
+  color: var(--color2);
+  padding: 8px 16px;
+  border-bottom-left-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: color 0.7s ease;
+}
+
+.menu-toggle:hover {
+  background-color: var(--menuColor6);
+}
+
+.sliding-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: var(--menuColor2);
+  color: var(--menuColor5);
+  padding: 20px 40px 20px 20px;
+  transition: right 0.3s ease;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sliding-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.sliding-menu.active {
+  right: 0;
+}
+
+.sliding-menu h2 {
+  color: var(--menuColor1);
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+}
+
+.sliding-menu p {
+  font-size: 14px;
+  letter-spacing: var(--letterSpacing);
+  margin: 2px 0 20px 0;
+}
+
+.playRules {
+  color: var(--menuColor4);
+  font-size: 16px;
+  letter-spacing: var(--letterSpacing);
+}
+
+.copy {
+  background-color: var(--copyColor1);
+  color: var(--copyColor2);
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.copy a {
+  color: var(--copyColor2);
+  text-decoration: underline dotted;
+  text-decoration-color: var(--copyColor3);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+
+.copy a:hover {
+  color: var(--copyColor2);
+  text-decoration-color: var(--copyColor4);
+}
+
+@media only screen and (max-width: 470px) {
+  .title {
+    font-size: 28px;
+    margin: 60px 0 10px 0;
+  }
+
+  .boxContainer {
+    max-width: 130px;
+  }
+
+  .box {
+    min-height: var(--boxSize2);
+    min-width: var(--boxSize2);
+    line-height: var(--boxSize2);
+    font-size: 14px;
+  }
+
+  .front,
+  .back {
+    max-height: var(--boxSize2);
+    width: var(--boxSize2);
+    line-height: var(--boxSize2);
+  }
+
+  .progressDisplay {
+    width: 160px;
+  }
+}
+
+@media only screen and (max-width: 398px) {
+  .copy {
+    padding: 6px 0;
+    line-height: 1.6;
+  }
+
+  .copy2 {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .boxContainer {
+    gap: 8px;
+  }
+
+  .difficultyMsg {
+    margin: 14px 0 0 0;
+  }
+
+  .startGameBtn {
+    padding: 6px 12px;
+  }
+
+  .progressDisplay {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .sliding-menu {
+    right: -220px;
+    width: 220px;
+  }
+}
+
+@media only screen and (max-width: 270px) {
+  .box {
+    height: var(--boxSize3);
+    max-width: var(--boxSize3);
+    line-height: var(--boxSize3);
+    font-size: 13px;
+  }
+
+  .boxContainer {
+    max-width: 110px;
+    gap: 3px;
+  }
+
+  .active,
+  .flippedBox {
+    box-shadow: none;
+  }
+
+  .progressDisplayn .startGameBtn {
+    width: calc(100% - 10px);
+    padding-left: 10px;
+  }
+
+  .startGameBtn {
+    font-size: 14px;
+  }
+
+  .progressDisplay {
+    width: 140px;
+  }
+
+  .copy {
+    width: 100%;
+  }
+}
